@@ -10,7 +10,7 @@ import { addPost, editPost } from 'redux/slices/posts';
 
 // Компонент CreatePostScreen
 const CreatePostScreen = ({ route, navigation }) => {
-  const { post: { title: pTitle, description: pDescription, image: pImage, id: pId } = {} } = route.params;
+  const { post: { title: pTitle, description: pDescription, image: pImage, id: pId } = {} } = route.params || {};
 
   const [title, setTitle] = useState(pTitle || '');
   const [description, setDescription] = useState(pDescription || '');
