@@ -1,0 +1,106 @@
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'airbnb/hooks',
+    'airbnb-typescript',
+    'prettier',
+    'prettier/react',
+    'airbnb'
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: { jsx: true },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: './tsconfig.json'
+  },
+  plugins: [
+    'prettier', 'react', '@typescript-eslint', 'react-native'
+  ],
+  rules: {
+    // TODO: Remove the following after DEMO
+    '@typescript-eslint/no-explicit-any': 'off',
+    semi: 1,
+    'eol-last': 'error',
+    'no-unsafe-optional-chaining': 0,
+    'no-nonoctal-decimal-escape': 0,
+    'no-param-reassign': [1, { props: false }],
+    'array-callback-return': [2, { checkForEach: false }],
+    'import/order': [2, { groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'] }],
+    'sort-imports': ['error', { ignoreCase: true, allowSeparatedGroups: true }],
+    'jsx-quotes': [1, 'prefer-single'],
+    'max-len': ['error', { code: 130 }],
+    'import/extensions': [1, { extensions: ['.jsx', '.tsx', '.ts', '.js', '.svg'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx', '.ts', '.js'] }],
+    'import/no-unresolved': 0,
+    'import/prefer-default-export': 0,
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': 0,
+    'no-useless-return': 0,
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+    'react/display-name': 0,
+    'react/require-default-props': 0,
+    'react/jsx-boolean-value': 0,
+    'react/jsx-no-duplicate-props': 2,
+    'react/jsx-no-undef': 1,
+    'no-bitwise': 0,
+    'no-console': 1,
+    'consistent-return': [1, { treatUndefinedAsUnspecified: true }],
+    'no-underscore-dangle': 0,
+    'react/jsx-sort-props': 0,
+    'react/jsx-uses-react': 1,
+    'react/jsx-uses-vars': 1,
+    'react/no-did-mount-set-state': 1,
+    'react/no-did-update-set-state': 1,
+    'react/no-multi-comp': 0,
+    'react/no-string-refs': 1,
+    'react/no-unknown-property': 0,
+    'react/jsx-first-prop-new-line': [2, 'never'],
+    'object-curly-spacing': ['error', 'always'],
+    'react/jsx-tag-spacing': ['error', {
+      closingSlash: 'never',
+      beforeSelfClosing: 'always',
+      afterOpening: 'never',
+      beforeClosing: 'never'
+    }],
+    'react/prop-types': 0,
+    'react/react-in-jsx-scope': 1,
+    'react/self-closing-comp': 1,
+    'react/wrap-multilines': 0,
+    'react-hooks/exhaustive-deps': 'off',
+    'arrow-parens': [2, 'as-needed', { requireForBlockBody: true }],
+    'no-plusplus': [1, { allowForLoopAfterthoughts: true }],
+    'jsx-a11y/label-has-associated-control': [2, { required: { some: ['nesting', 'id'] } }],
+    'jsx-a11y/label-has-for': [2, { required: { some: ['nesting', 'id'] } }],
+    'jsx-a11y/click-events-have-key-events': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'react/jsx-one-expression-per-line': [0, { allow: 'none' | 'literal' | 'single-child' }],
+    'react/jsx-closing-bracket-location': [1, { selfClosing: 'after-props', nonEmpty: 'after-props' }],
+    'react/jsx-indent-props': [2, 'first'],
+    'react/jsx-props-no-multi-spaces': 1,
+    'object-curly-newline': [1, {
+      ObjectExpression: { multiline: true, minProperties: 4 },
+      ObjectPattern: { multiline: true },
+      ImportDeclaration: 'never',
+      ExportDeclaration: { multiline: true, minProperties: 2 }
+    }],
+    'react/jsx-props-no-spreading': [1, { custom: 'ignore' }],
+    quotes: [
+      2,
+      'single',
+      'avoid-escape'
+    ],
+    '@typescript-eslint/no-var-requires': 0,
+    'keyword-spacing': [2, { before: true, after: true }],
+    'function-paren-newline': ['error', 'consistent'],
+    'comma-dangle': ['error', 'never'],
+    '@typescript-eslint/comma-dangle': ['error', 'never'],
+    'operator-linebreak': ["error", "after"]
+  }
+};
