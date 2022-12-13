@@ -27,6 +27,7 @@ const SignInScreen = () => {
       <Input value={login}
              onChangeText={handleChangeText}
              mx={5}
+             testID='input'
              placeholder='username' />
 
       <Button mt={3} w='90%' onPress={loginAction} bg='bgDark'>

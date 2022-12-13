@@ -108,7 +108,8 @@ const HomeTabs = () => (
                    tabBarInactiveTintColor: placeholder,
                    headerLeft: props => renderHeaderLeft(props, navigation),
                    headerRight: props => renderHeaderRight(props, navigation),
-                   headerTitleAlign: 'center'
+                   headerTitleAlign: 'center',
+                   tabBarTestID: `${route.name}Tab`
                  })}>
     <Tab.Screen name='Home' component={HomeScreen} />
     <Tab.Screen name='Favourite' component={FavouritesScreen} />
