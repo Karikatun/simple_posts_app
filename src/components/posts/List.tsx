@@ -1,4 +1,4 @@
-import React, { memo, ReactElement, useCallback, useState } from 'react';
+import React, { memo, ReactElement, useCallback, useEffect, useState } from 'react';
 
 import { Box, Image, Pressable, Text, ZStack } from 'native-base';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
@@ -15,7 +15,7 @@ const PostsList = ({ posts, navigation }): ReactElement => {
 
   const handleListItemsChange = useCallback((props) => {
     reactotron.log(props);
-    setTimeout(() => setVisibleItems(props.viewableItems), 500);
+    setVisibleItems(props.viewableItems);
   }, []);
 
   const isItemVisible = useCallback(post => visibleItems.findIndex(item => item.key === post.id) !== -1, [visibleItems]);
@@ -33,8 +33,21 @@ const PostsList = ({ posts, navigation }): ReactElement => {
 export default PostsList;
 
 const PostItem = memo(({ post, navigation, isVisible }) => {
+  const [isVisibleState, setIsVisibleState] = useState(false);
   reactotron.log(post.id, isVisible)
   const { id, image, booked, title } = post;
+
+  const fetchImage = async () => {
+    const response = new Promise((resolve) => {
+      setTimeout(() => resolve(isVisible), 500);
+    });
+
+    response.then((resp) => {
+      reactotron.log('response then', resp);
+      setIsVisibleState(resp);
+    });
+  };
+
   const dispatch = useAppDispatch();
 
   const openPost = () => {
@@ -45,10 +58,14 @@ const PostItem = memo(({ post, navigation, isVisible }) => {
     dispatch(toggleBooked(id));
   };
 
+  useEffect(() => {
+    fetchImage();
+  }, [isVisible]);
+
   return (
     <Pressable onPress={openPost}>
       <ZStack mx={5} mt={5} bg='bgDark' rounded={10} h={200} overflow='hidden'>
-        {isVisible && <Image w='100%' h='100%' source={{ uri: image }} alt='image' />}
+        {isVisibleState && <Image w='100%' h='100%' source={{ uri: image }} alt='image' />}
         <Box opacity={0.5} bg='bgDark' w='100%' h='100%' />
         <Box p={5}
              top={0}
